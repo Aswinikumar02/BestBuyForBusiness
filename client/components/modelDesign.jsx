@@ -11,6 +11,7 @@ import {
   Dimmer,
   Icon
 } from 'semantic-ui-react';
+import ModelTemplate from './modelTemplate.jsx';
 // const {browserHistory, hashHistory, Route, Router} = require('react-router');
 // import DetailedReg from './detailedReg.jsx';
 const typeOptions = [
@@ -39,20 +40,59 @@ export default class Layout extends Component {
   constructor() {
     super();
     this.state = {
-      active: true
+      active: true,
+      imgurl: '',
+      type:'',
+      contenturl:'',
+      buttontext:'',
+      description:'',
+      desOption:''
     }
-// this.goBack = this.goBack.bind(this);
+    this.updateTemplate = this.updateTemplate.bind(this);
   }
   handleClose() {
     this.setState({active: false});
     this.props.closeModal();
   }
-  // goBack(){
-  //   hashHistory.push('/DetailedReg');
-  // }
+  updateTemplate(){
+    this.props.closeModal();
+    this.props.updateCardTemplate();
+    // location.reload();
+  }
+  imageURl(e,value){
+    this.setState({imgurl:value.value},function(){
+      console.log('setstate image',this.state.imgurl);
+    })
+  }
+  type(e,value){
+    this.setState({type:value.value},function(){
+      console.log('set type',this.state.type);
+    })
+  }
+  contentUrl(e,value){
+    this.setState({contenturl:value.value},function(){
+      console.log('set type',this.state.contenturl);
+    })
+  }
+  buttontext(e,value){
+    this.setState({buttontext:value.value},function(){
+      console.log('set type',this.state.buttontext);
+    })
+  }
+  description(e,value){
+    this.setState({description:value.value},function(){
+      console.log('set type',this.state.description);
+    })
+  }
+  desOption(e,value){
+    this.setState({desOption:value.value},function(){
+      console.log('set type',this.state.desOption);
+    })
+  }
   render() {
     const {active} = this.state;
-    return (<Dimmer active={active} page="page">
+    return (
+      <Dimmer active={active} page="page">
       <div>
         <Card style={{
             width: '50%',
@@ -77,7 +117,7 @@ export default class Layout extends Component {
           }}>Type</label>
       </Grid.Column>
       <Grid.Column style={{marginLeft:'-10%'}}>
-        <Dropdown placeholder='Type' search="search" selection="selection" options={typeOptions}/>
+        <Dropdown placeholder='Type' search="search" selection="selection" options={typeOptions} onChange={this.type.bind(this)}/>
       </Grid.Column>
     </Grid.Row>
     <Grid.Row>
@@ -89,7 +129,7 @@ export default class Layout extends Component {
     }}>Image URL</label>
 </Grid.Column>
 <Grid.Column style={{marginLeft:'-10%'}}>
-  <Input placeholder='Image URL'/>
+  <Input placeholder='Image URL' onChange={this.imageURl.bind(this)}/>
   <p style={{
       color: 'black',
       fontWeight: "bolder",textAlign: "justify",marginLeft:'10%'
@@ -105,7 +145,7 @@ export default class Layout extends Component {
     }}>Content URL</label>
 </Grid.Column>
 <Grid.Column style={{marginLeft:'-10%'}}>
-<Input placeholder='Content URL'/>
+<Input placeholder='Content URL'onChange={this.contentUrl.bind(this)}/>
 </Grid.Column>
 </Grid.Row>
 <Grid.Row>
@@ -117,7 +157,7 @@ export default class Layout extends Component {
     }}>Button Text</label>
 </Grid.Column>
 <Grid.Column style={{marginLeft:'-10%'}}>
-<Input placeholder='Button Text'/>
+<Input placeholder='Button Text' onChange={this.buttontext.bind(this)}/>
 </Grid.Column>
 </Grid.Row>
 <Grid.Row>
@@ -129,7 +169,7 @@ export default class Layout extends Component {
     }}>Description</label>
 </Grid.Column>
 <Grid.Column>
-  <Form.TextArea placeholder='Tell us more about you...' style={{marginLeft:'-10%'}}></Form.TextArea>
+  <Form.TextArea placeholder='Tell us more about you...' style={{marginLeft:'-10%'}} onChange={this.description.bind(this)}></Form.TextArea>
   <p style={{
       textAlign: "justify",
       fontWeight: "bolder",color:'black'
@@ -145,7 +185,7 @@ export default class Layout extends Component {
     }}>Description Option</label>
 </Grid.Column>
 <Grid.Column style={{marginLeft:'-10%'}}>
-  <Dropdown placeholder='Description Option' search="search" selection="selection" options={descriptionOptions}/>
+  <Dropdown placeholder='Description Option' search="search" selection="selection" options={descriptionOptions} onChange={this.desOption.bind(this)}/>
 </Grid.Column>
 </Grid.Row>
               </Grid>
@@ -155,12 +195,12 @@ export default class Layout extends Component {
                   backgroundColor: '#003E6A',
                   color: 'white',float:'left',marginLeft:'5%'
                 }} content='Back'></Button>
-            <Button style={{
+            <Button onClick={this.updateTemplate} style={{
                 marginTop: '3%',
                 marginBottom: '2%',
                 backgroundColor: '#003E6A',
                 color: 'white'
-              }} content='Fetch URL'></Button>
+              }} content='Submit'></Button>
               <Button style={{
                   marginTop: '3%',
                   marginBottom: '2%',

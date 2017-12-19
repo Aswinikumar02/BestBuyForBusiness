@@ -235,23 +235,12 @@ export default class Detailed extends React.Component {
 </Scrollbars>
 
           </Accordion.Content>
-          <Accordion.Title active={activeIndex === 3} index={3} onClick={this.handleClick} style={{color:'blue'}}>
-            <Icon name='dropdown'/>
-            Template Selection
-          </Accordion.Title>
-          <Accordion.Content active={activeIndex === 3}>
-            <Scrollbars style={{ height: this.state.height1 }}>
 
-            <WebLayout/>
-          </Scrollbars>
-
-          </Accordion.Content>
-
-        <Accordion.Title active={activeIndex === 4} index={4} onClick={this.handleClick} style={{color:'blue'}}>
+        <Accordion.Title active={activeIndex === 3} index={3} onClick={this.handleClick} style={{color:'blue'}}>
           <Icon name='dropdown'/>
           Communication Details
         </Accordion.Title>
-        <Accordion.Content active={activeIndex === 4}>
+        <Accordion.Content active={activeIndex === 3}>
           <Scrollbars style={{ height: this.state.height2 }}>
 
           <Form>
@@ -289,11 +278,11 @@ export default class Detailed extends React.Component {
 
         </Accordion.Content>
 
-      <Accordion.Title active={activeIndex === 5} index={5} onClick={this.handleClick} style={{color:'blue'}}>
+      <Accordion.Title active={activeIndex === 4} index={4} onClick={this.handleClick} style={{color:'blue'}}>
         <Icon name='dropdown'/>
         Payment Details
       </Accordion.Title>
-      <Accordion.Content active={activeIndex === 5}>
+      <Accordion.Content active={activeIndex === 4}>
         <Scrollbars style={{ height: this.state.height2 }}>
 
         <p>The payment method defined here is applicable only if the payment source is chosen as "Partner" in buyers profile and if chosen,the payment on this page will override the payment defined at buyer profile.</p>
@@ -356,6 +345,17 @@ export default class Detailed extends React.Component {
 <Button style={{color:'blue',marginLeft:'40%',marginTop:'3%'}}>Submit</Button></div>
     :null}
   </Scrollbars>
+
+      </Accordion.Content>
+      <Accordion.Title active={activeIndex === 5} index={5} onClick={this.handleClick} style={{color:'blue'}}>
+        <Icon name='dropdown'/>
+        Template Selection
+      </Accordion.Title>
+      <Accordion.Content active={activeIndex === 5}>
+        <Scrollbars style={{ height: this.state.height1 }}>
+
+        <WebLayout/>
+      </Scrollbars>
 
       </Accordion.Content>
       </Accordion>
