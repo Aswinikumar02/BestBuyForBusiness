@@ -1,0 +1,20 @@
+.ui.steps .step.active {
+      border: 1px solid white;
+      background: #003E6A ;
+      color:"white"
+    }
+    .ui.steps .step.active .title {
+      color: white;
+    }
+    .ui.steps .step.active .icon {
+      color: white;
+    }
+    .ui.steps .step.active:after {
+      background: #003E6A  ;
+    }
+    .ui.form select{
+      width:75%;
+      background-color: #CCE2FF;
+      border:'2px solid black';
+      margin-left:12%;
+    }
