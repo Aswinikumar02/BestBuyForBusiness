@@ -1,32 +1,42 @@
 import React, {Component} from 'react';
-import {Card, Button} from 'Semantic-ui-react';
+import {Card, Button,Image} from 'semantic-ui-react';
 export default class MenuBar extends Component {
   constructor() {
     super();
-
+    this.state = {
+      cardtemp: []
+    };
+  }
+  componentDidMount(){
+    this.setState({cardtemp:this.props.cardtemp})
   }
   render() {
-    return (<div>
-      <Card>
-        <Card.Content>
-          <Card.Header>
-            Steve Sanders
-          </Card.Header>
-          <Card.Meta>
-            Friends of Elliot
-          </Card.Meta>
-          <Card.Description>
-            Steve wants to add you to the group
-            <strong>best friends</strong>
-          </Card.Description>
-        </Card.Content>
-        <Card.Content extra="extra">
-          <div className='ui two buttons'>
-            <Button basic="basic" color='green'>Approve</Button>
-            <Button basic="basic" color='red'>Decline</Button>
-          </div>
-        </Card.Content>
-      </Card>
-    </div>)
+    console.log('inside card template',this.state.cardtemp);
+    var template = this.state.cardtemp.map((item, i) => {
+      console.log('map type',item[0].type);
+      return(
+        <Card key={i}>
+    <Image src='../assets/images/lap.png' />
+    <Card.Content>
+      <Card.Header>
+        {item[0].type}
+      </Card.Header>
+      <Card.Description>
+        {item[0].description}
+      </Card.Description>
+    </Card.Content>
+    <Card.Content extra>
+      <Button>{item[0].buttontext}</Button>
+    </Card.Content>
+  </Card>
+      );
+    });
+
+    return (
+      <div>
+        <Card.Group itemsPerRow={2}>
+        {template}
+      </Card.Group>
+      </div>)
   }
 }

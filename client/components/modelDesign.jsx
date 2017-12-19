@@ -46,7 +46,9 @@ export default class Layout extends Component {
       contenturl:'',
       buttontext:'',
       description:'',
-      desOption:''
+      desOption:'',
+      cardtemp:[],
+      tempModel:false
     }
     this.updateTemplate = this.updateTemplate.bind(this);
   }
@@ -55,9 +57,15 @@ export default class Layout extends Component {
     this.props.closeModal();
   }
   updateTemplate(){
+    var cardtemp1 = [];
+    this.setState({tempModel:true})
     this.props.closeModal();
-    this.props.updateCardTemplate();
-    // location.reload();
+    console.log('inside submit',this.state.imgurl);
+    cardtemp1.push({imageurl:this.state.imgurl,type:this.state.type,contenturl:this.state.contenturl,buttontext:this.state.buttontext,description:this.state.description,desOption:this.state.desOption})
+    // console.log(' 90909bfbf - > ',cardtemp1);
+    // this.setState({cardtemp:cardtemp1});
+    // console.log('card value',this.state.cardtemp);
+    this.props.updateCardTemplate(cardtemp1);
   }
   imageURl(e,value){
     this.setState({imgurl:value.value},function(){
@@ -93,6 +101,7 @@ export default class Layout extends Component {
     const {active} = this.state;
     return (
       <Dimmer active={active} page="page">
+        {this.state.tempModel ? <ModelTemplate cardtemp1={this.state.cardtemp}/> : null}
       <div>
         <Card style={{
             width: '50%',

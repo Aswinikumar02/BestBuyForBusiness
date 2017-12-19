@@ -18,6 +18,7 @@ export default class MenuBar extends Component {
     this.state = {
       templatemodel: false,
       updateCardTemplate: false,
+      cardtemp: []
       // count:0
     }
     this.modelDesign = this.modelDesign.bind(this);
@@ -30,9 +31,11 @@ export default class MenuBar extends Component {
   closeModal() {
     this.setState({templatemodel: false, activeElement: 'call'});
   }
-  updateCardTemplate() {
-    // var count = this.state.count + 1;
-    this.setState({updateCardTemplate:true})
+  updateCardTemplate(cardtemp) {
+    var cTemp = this.state.cardtemp;
+    cTemp.push(cardtemp);
+    this.setState({updateCardTemplate:true, cardtemp:cTemp});
+    console.log('update - - > ',this.state.cardtemp);
   }
   completeReg() {
     hashHistory.push('/CompleteReg');
@@ -47,12 +50,7 @@ export default class MenuBar extends Component {
   // }
   render() {
     const {activeElement} = this.state;
-    // const template = funtemplate(){
-    //   while(this.state.count > 0){
-    //     <ModelTemplate />
-    //     this.state.count--;
-    //   }
-    // }
+console.log('inside wedlayout',this.state.cardtemp);
     return (<div>
       {
         this.state.templatemodel
@@ -125,7 +123,7 @@ export default class MenuBar extends Component {
         <Image src='../assets/images/Tempbg1.png' style={{
             width: '100%'
           }}/>
-          {this.state.updateCardTemplate ? <ModelTemplate /> : null}
+          {this.state.updateCardTemplate ? <ModelTemplate cardtemp={this.state.cardtemp} /> : null}
         {/* <ModelTemplate /> */}
         <Card onClick={this.modelDesign} style={{
             marginLeft: '38%',
