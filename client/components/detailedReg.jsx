@@ -1,5 +1,6 @@
 import React from 'react';
 import Collapsible from 'react-collapsible';
+import { Scrollbars } from "react-custom-scrollbars";
 import {
   Form,
   Dropdown,
@@ -24,6 +25,11 @@ export default class Detailed extends React.Component {
     }
     this.handleClick = this.handleClick.bind(this);
   }
+
+  componentDidMount() {
+      this.setState({ height1: window.innerHeight - 350 + "px" ,
+    height2: window.innerHeight - 375 + "px"});
+    }
 
   handleClick(e, titleProps) {
     const {index} = titleProps
@@ -193,12 +199,14 @@ export default class Detailed extends React.Component {
   </Grid>
             </Form>
           </Accordion.Content>
-
           <Accordion.Title active={activeIndex === 2} index={2} onClick={this.handleClick} style={{color:'blue'}}>
             <Icon name='dropdown'/>
             Home page selection
           </Accordion.Title>
+
           <Accordion.Content active={activeIndex === 2}>
+            <Scrollbars style={{ height: this.state.height2 }}>
+
             <div style={{marginLeft:'25%',marginBottom:'10%'}}>
             <Radio label='Default Home Page' name='radioGroup' value='Default' checked={this.state.value === 'Default'} onChange={()=>{this.setState({ value: 'Default' })}} />
             <Radio style={{marginLeft:'3%'}} label='Dynamic Home Page' name='radioGroup' value='Dynamic' checked={this.state.value === 'Dynamic'} onChange={()=>{this.setState({ value: 'Dynamic' })}}/>
@@ -224,15 +232,19 @@ export default class Detailed extends React.Component {
 </Form.Field>
 </Form><br/><br/>
 <Checkbox label='Enable Geek Squad Banner' style={{marginLeft:'10%'}}/>
+</Scrollbars>
 
           </Accordion.Content>
-
           <Accordion.Title active={activeIndex === 3} index={3} onClick={this.handleClick} style={{color:'blue'}}>
             <Icon name='dropdown'/>
             Template Selection
           </Accordion.Title>
           <Accordion.Content active={activeIndex === 3}>
+            <Scrollbars style={{ height: this.state.height1 }}>
+
             <WebLayout/>
+          </Scrollbars>
+
           </Accordion.Content>
 
         <Accordion.Title active={activeIndex === 4} index={4} onClick={this.handleClick} style={{color:'blue'}}>
@@ -240,6 +252,8 @@ export default class Detailed extends React.Component {
           Communication Details
         </Accordion.Title>
         <Accordion.Content active={activeIndex === 4}>
+          <Scrollbars style={{ height: this.state.height2 }}>
+
           <Form>
         <Form.Field required inline>
         <label style={{fontWeight:'bold',fontSize:'18px'}}>Post Process Communication</label>
@@ -271,6 +285,8 @@ export default class Detailed extends React.Component {
   <Radio label='Yes' name='radioGroup' value='Yes' checked={this.state.value === 'Yes'} onChange={()=>{this.setState({ value: 'Yes' })}} />
 <Radio style={{marginLeft:'3%'}} label='No' name='radioGroup' value='No' checked={this.state.value === 'No'} onChange={()=>{this.setState({ value: 'No' })}}/>
 </div>
+</Scrollbars>
+
         </Accordion.Content>
 
       <Accordion.Title active={activeIndex === 5} index={5} onClick={this.handleClick} style={{color:'blue'}}>
@@ -278,6 +294,8 @@ export default class Detailed extends React.Component {
         Payment Details
       </Accordion.Title>
       <Accordion.Content active={activeIndex === 5}>
+        <Scrollbars style={{ height: this.state.height2 }}>
+
         <p>The payment method defined here is applicable only if the payment source is chosen as "Partner" in buyers profile and if chosen,the payment on this page will override the payment defined at buyer profile.</p>
         <Form>
         <Form.Field required inline>
@@ -337,6 +355,8 @@ export default class Detailed extends React.Component {
 </Form>
 <Button style={{color:'blue',marginLeft:'40%',marginTop:'3%'}}>Submit</Button></div>
     :null}
+  </Scrollbars>
+
       </Accordion.Content>
       </Accordion>
       </Grid.Column>
