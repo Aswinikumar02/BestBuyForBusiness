@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Menu, Input, Button, Icon } from 'semantic-ui-react';
-import TopMenu from './TopMenu.jsx'
+const {browserHistory, hashHistory, Route, Router} = require('react-router');
+import TopMenu from './TopMenu.jsx';
 import '../styles/style.css';
 
 export default class MenuBar extends Component {
@@ -20,8 +21,7 @@ export default class MenuBar extends Component {
       <div>
       <TopMenu />
       <Menu stackable secondary  style={MenuBarStyle}>
-      <Menu.Item style={{fontWeight:'bolder',fontSize:'130%', color:'white'}}><img src='./assets/images/best-buy-logo-min.png' title="Best Buy For Business" /> FOR BUSINESS</Menu.Item>
-        <Menu.Item style={{fontWeight:"bolder", color:'white'}}  active={this.state.activeItem === 'Home'} onClick={()=>{this.setState({ activeItem: "Home" })}} />
+      <Menu.Item style={{fontWeight:'bolder',fontSize:'130%', color:'white'}} active={this.state.activeItem === 'Home'} onClick={()=>{this.setState({ activeItem: "Home" }); hashHistory.push('/')}}><img src='./assets/images/best-buy-logo-min.png' title="Best Buy For Business" /> FOR BUSINESS</Menu.Item>
         <Menu.Menu position='right'>
         <Menu.Item style={{fontWeight:"bolder", color:'white'}} name='PRODUCTS' active={this.state.activeItem === 'Products'} onClick={()=>{this.setState({ activeItem: "Products" })}} />
         <Menu.Item style={{fontWeight:"bolder", color:'white'}} name='SOLUTIONS AND SERVICES' active={this.state.activeItem === 'Solutions & Services'} onClick={()=>{this.setState({ activeItem: "Solutions & Services" })}} />

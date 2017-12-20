@@ -16,13 +16,17 @@ import ModelTemplate from './modelTemplate.jsx';
 // import DetailedReg from './detailedReg.jsx';
 const typeOptions = [
   {
-    key: "option 1",
-    value: "option 1",
-    text: "option 1"
+    key: "Product Catetory",
+    value: "Product Catetory",
+    text: "Product Catetory"
   }, {
-    key: "option 2",
-    value: "option 2",
-    text: "option 2"
+    key: "Product",
+    value: "Product",
+    text: "Product"
+  },{
+    key: "Product List",
+    value: "Product List",
+    text: "Product List"
   }
 ];
 const descriptionOptions = [

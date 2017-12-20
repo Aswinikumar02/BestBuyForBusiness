@@ -60,7 +60,8 @@ export default class Registration extends Component {
     stepperoneStatus: true,
     steppertwoStatus: false,
     stepperthreeStatus: false,
-    stepperfourStatus: false
+    stepperfourStatus: false,
+    type:''
   }
 }
 
@@ -78,7 +79,7 @@ render() {
     stepperthreeStatus,
     stepperfourStatus
   } = this.state
-
+console.log('inside registration',this.props.type);
     return(
       <div>
       <MenuBar/>

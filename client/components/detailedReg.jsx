@@ -45,16 +45,16 @@ export default class Detailed extends React.Component {
   render() {
     const option2 = [
   {
-    key: 'today',
-    text: 'today',
-    value: 'today',
-    content: 'Today',
+    key: 'Best Buy for Business',
+    text: 'Best Buy for Business',
+    value: 'Best Buy for Business',
+    content: 'Best Buy for Business',
   },
   {
-    key: 'this week',
-    text: 'this week',
-    value: 'this week',
-    content: 'This Week',
+    key: 'Best Buy for Education',
+    text: 'Best Buy for Education',
+    value: 'Best Buy for Education',
+    content: 'Best Buy for Education',
   },
   {
     key: 'this month',
@@ -65,106 +65,55 @@ export default class Detailed extends React.Component {
 ]
     const option1 = [
       {
-        key: 'angular',
-        text: 'Angular',
-        value: 'angular'
+        key: 'Basic',
+        text: 'Basic',
+        value: 'Basic'
       }, {
-        key: 'css',
-        text: 'CSS',
-        value: 'css'
+        key: 'Basic with Products Dropdown',
+        text: 'Basic with Products Dropdown',
+        value: 'Basic with Products Dropdown'
       }, {
-        key: 'design',
-        text: 'Graphic Design',
-        value: 'design'
+        key: 'Basic with Search',
+        text: 'Basic with Search',
+        value: 'Basic with Search'
       }, {
-        key: 'ember',
-        text: 'Ember',
-        value: 'ember'
+        key: 'Basic with Search and Products Dropdown',
+        text: 'Basic with Search and Products Dropdown',
+        value: 'Basic with Search and Products Dropdown'
       }]
     const options = [
       {
-        key: 'angular',
-        text: 'Angular',
-        value: 'angular'
+        key: 'Product Not Available on BestBuy.com',
+        text: 'Product Not Available on BestBuy.com',
+        value: 'Product Not Available on BestBuy.com'
       }, {
-        key: 'css',
-        text: 'CSS',
-        value: 'css'
+        key: 'Product that have less than specified Quantity',
+        text: 'Product that have less than specified Quantity',
+        value: 'Product that have less than specified Quantity'
       }, {
-        key: 'design',
-        text: 'Graphic Design',
-        value: 'design'
+        key: 'Gift Cards',
+        text: 'Gift Cards',
+        value: 'Gift Cards'
       }, {
-        key: 'ember',
-        text: 'Ember',
-        value: 'ember'
+        key: 'Specific Classes',
+        text: 'Specific Classes',
+        value: 'Specific Classes'
       }, {
-        key: 'html',
-        text: 'HTML',
-        value: 'html'
-      }, {
-        key: 'ia',
-        text: 'Information Architecture',
-        value: 'ia'
-      }, {
-        key: 'javascript',
-        text: 'Javascript',
-        value: 'javascript'
-      }, {
-        key: 'mech',
-        text: 'Mechanical Engineering',
-        value: 'mech'
-      }, {
-        key: 'meteor',
-        text: 'Meteor',
-        value: 'meteor'
-      }, {
-        key: 'node',
-        text: 'NodeJS',
-        value: 'node'
-      }, {
-        key: 'plumbing',
-        text: 'Plumbing',
-        value: 'plumbing'
-      }, {
-        key: 'python',
-        text: 'Python',
-        value: 'python'
-      }, {
-        key: 'rails',
-        text: 'Rails',
-        value: 'rails'
-      }, {
-        key: 'react',
-        text: 'React',
-        value: 'react'
-      }, {
-        key: 'repair',
-        text: 'Kitchen Repair',
-        value: 'repair'
-      }, {
-        key: 'ruby',
-        text: 'Ruby',
-        value: 'ruby'
-      }, {
-        key: 'ui',
-        text: 'UI Design',
-        value: 'ui'
-      }, {
-        key: 'ux',
-        text: 'User Experience',
-        value: 'ux'
+        key: 'Special Order Products',
+        text: 'Special Order Products',
+        value: 'Special Order Products'
       }
     ]
     const {activeIndex} = this.state
     return (<div>
       <MenuBar/>
+      <h1 style={{color:'white',textAlign:'center',marginTop:'0%'}}>Partner Details</h1>
       <div>
         <Grid>
           <Grid.Column width={3}/>
           <Grid.Column width={12}>
         <Accordion styled="styled" style={{
-            marginTop: '5%',width:'80%'
+            marginTop: '-1%',width:'80%'
           }}>
           <Accordion.Title active={activeIndex === 1} index={1} onClick={this.handleClick} style={{color:'blue'}}>
             <Icon name='dropdown' size='tiny'/>
